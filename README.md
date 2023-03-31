@@ -4,7 +4,7 @@ Constructed by Carlos Pantoja-Malaga & Matthew Kolnicki at Florida State Univers
 Revisions done by Carlos Pantoja-Malaga for GitHub Repository ```hackernews-flask-app```.
 
 ## Author's Information
-This repository is affialiated with Secure, Parallel, and Distributed Programming in Python at Florida State University.
+This repository was affialiated with Secure, Parallel, and Distributed Programming in Python at Florida State University.
 
 * Carlos Pantoja-Malaga
 * Matthew Kolnicki

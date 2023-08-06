@@ -1,0 +1,117 @@
+{% extends "base.html" %} {% block title %}Python-Project - Admin Panel{% endblock %}
+{% block content %}
+	{% if adminpanel %}
+	<div class="card border-dark mb-3" style="overflow: scroll; max-height: 500px;">
+	<div class="card-header">Users</div>
+		<table class="table table-striped">
+			<thead class="text-center">
+				<tr class="bg-dark text-white">
+					<th scope="col">UUID</th>
+					<th scope="col">Email</th>
+					<th scope="col">Name</th>
+					<th scope="col">Role</th>
+					<th scope="col">Delete User</th>
+        
+				</tr>
+			</thead>
+			<tbody class="text-center">
+				{% for node in usertable %}
+				<tr>
+					<td>{{node['id']}}</td>
+					<td>{{node['email']}}</td>
+					<td>{{node['name']}}</td>
+					{% if node['admin'] %}
+					<td>Administrator</td>
+					{% else %}
+					<td>User</td>
+					{% endif %}
+					<td><a class="btn btn-outline-danger" href="/delete-user/{{node['id']}}" role="button">Delete</a> </td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="card border-primary mb-3" style="overflow: scroll; max-height: 500px;">
+	<div class="card-header">Likes</div>
+		<table class="table table-striped">
+			<thead class="text-center">
+				<tr class="bg-primary text-white">
+					<th scope="col">UUID</th>
+					<th scope="col">Email</th>
+					<th scope="col">Name</th>
+					<th scope="col">Article ID</th>
+					<th scope="col">Delete Like</th>
+        
+				</tr>
+			</thead>
+			<tbody class="text-center">
+				{% for node in likestable %}
+				<tr>
+					<td>{{node['user_id']}}</td>
+					<td>{{node['email']}}</td>
+					<td>{{node['name']}}</td>
+					<td>{{node['article_id']}}</td>
+					<td><a class="btn btn-outline-danger" href="/delete-like/{{node['user_id']}}/{{node['article_id']}}" role="button">Delete</a> </td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="card border-danger mb-3" style="overflow: scroll; max-height: 500px;">
+	<div class="card-header">Dislikes</div>
+		<table class="table table-striped">
+			<thead class="text-center">
+				<tr class="bg-danger text-white">
+					<th scope="col">UUID</th>
+					<th scope="col">Email</th>
+					<th scope="col">Name</th>
+					<th scope="col">Article ID</th>
+					<th scope="col">Delete Dislike</th>
+        
+				</tr>
+			</thead>
+			<tbody class="text-center">
+				{% for node in dislikestable %}
+				<tr>
+					<td>{{node['user_id']}}</td>
+					<td>{{node['email']}}</td>
+					<td>{{node['name']}}</td>
+					<td>{{node['article_id']}}</td>
+					<td><a class="btn btn-outline-danger" href="/delete-dislike/{{node['user_id']}}/{{node['article_id']}}" role="button">Delete</a> </td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="card border-info mb-3" style="overflow: scroll; max-height: 500px;">
+	<div class="card-header">Articles</div>
+		<table class="table table-striped">
+			<thead class="text-center">
+				<tr class="bg-info text-white">
+					<th scope="col">UUID</th>
+					<th scope="col" class="text-left">Title & URL Redirect</th>
+					<th scope="col">Author</th>
+					<th scope="col">Date Stored</th>
+					<th scope="col">Delete Article</th>
+				</tr>
+			</thead>
+			<tbody class="text-center">
+				{% for node in articlestable %}
+				<tr>
+					<td>{{node['id']}}</td>
+					<td class="text-left"><a href={{node['url']}}>{{node['title']}}</a></td>
+					<td>{{node['author']}}</td>
+					<td>{{node['date']}}</td>
+					<td><a class="btn btn-outline-danger" href="/delete-article/{{node['id']}}" role="button">Delete</a> </td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% else %}
+	<div class="alert alert-danger" role="alert">You do not have sufficient permissions to view this page.</div>
+	{% endif %}
+{% endblock %}

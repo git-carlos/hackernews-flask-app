@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% block title %}Python-Project - News{% endblock %}
+{% block content %}
+	{% if not session %}
+	<div class="alert alert-warning" role="alert">You are not <a href="/login" class="alert-link">logged in</a>! Interact with posts by logging in.</div>
+	{% endif %}
+	<!--
+	{% if session %}
+	<div class="card border-primary mb-3">
+		<table class="table table-striped">
+			<thead class="text-center">
+				<tr class="bg-primary text-white">
+					<th scope="col" class="text-left">Liked Articles</th>
+					<th scope="col">Author</th> 
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for node in likedtable %}
+				<tr class="text-center">
+					<td class="text-left"><a href={{node['url']}}>{{node['title']}}</a></td>
+					<td class=>{{node['author']}}</td>
+				
+					{% if node['id'] in likedflag %}
+					<td><a class="btn btn-primary" href="/like-article/{{node['id']}}" role="button">Liked!</a></td>
+					{% else %}
+					<td><a class="btn btn-outline-primary" href="/like-article/{{node['id']}}" role="button">Like?</a></td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+	!-->
+	
+	<div class="card border-info mb-3">
+		<table class="table table-striped">
+			<thead class="text-center">
+				<tr class="bg-info text-white">
+					<th scope="col" class="text-left">Top Articles & Redirect</th>
+					<th scope="col">Author</th>
+				
+					{% if session %}
+					<th scope="col"></th>
+					<th scope="col"></th>
+					{% endif %}
+				
+					<th scope="col">Date Logged</th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				{% for node in articlestable %}
+				<tr class="text-center">
+					<td class="text-left"><a href={{node['url']}}>{{node['title']}}</a></td>
+					<td>{{node['author']}}</td>
+				
+					{% if session %}
+					<!-- handle like action-->
+					{% if node['id'] in likedflag %}
+					<td><a class="btn btn-primary" href="/like-article/{{node['id']}}" role="button">Liked!</a></td>
+					{% else %}
+					<td><a class="btn btn-outline-primary" href="/like-article/{{node['id']}}" role="button">Like?</a></td>
+					{% endif %}
+				
+					<!-- handle dislike action-->
+					{% if node['id'] in dislikedflag %}
+					<td><a class="btn btn-danger" href="/dislike-article/{{node['id']}}" role="button">Disliked!</a></td>
+					{% else %}
+					<td><a class="btn btn-outline-danger" href="/dislike-article/{{node['id']}}" role="button">Dislike?</a></td>
+					{% endif %}
+					{% endif %}
+				
+					<td>{{node['date']}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

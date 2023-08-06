@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}Python-Project - Home{% endblock %}
+{% block content %}
+	<br>
+	<h2 style="padding-left: 25px">Full-Stack Python Web Application</h2>
+	<hr>
+	<p style="padding-left: 25px">This web application is affiliated with Florida State University for course COP4521.</p>
+	<h3 style="padding-left: 25px">Authors</h3>
+	<hr>
+	<p style="padding-left: 25px">This web application has been constructed and is managed by :</p>
+  <ul>
+    <li>Carlos Pantoja-Malaga</li>
+    <li>Matthew Kolnicki</li>
+  </ul>
+	<h3 style="padding-left: 25px">Description</h3>
+	<hr>
+	<p style="padding-left: 25px">The semester project for COP 4521 (Secure, Parallel, and Distributed Python Programming).</p>
+	<ul>
+		<li>Full-stack python web application built on Gunicorn Flask.</li>
+		<li>Hosted by an NGINX web server served on an Ubuntu 20.04 instance.</li>
+		<li>News tab is populated through interacting with HackerNewsAPI.</li>
+		<li>User management and authorization is handled through Auth0.</li>
+	</ul>
+{% endblock %}

@@ -9,6 +9,12 @@ Semester project for Secure, Parallel, and Distributed with Python. A full stack
 For client-side security, the web-application utilizes Auth0 to authenticate users connected to the service. They are unable to access the multiple tabs such as admin or profile on the site unless they are currently present in an Auth0 session. HTTPS is also active on the web-server to allow for secure connection, with HTTP traffic being redirected to HTTPS.
 For server-side security, password login through SSH is disabled. Private/Public key login is the only form of allowed login through SSH.  Two-factor authentication through cellular devices is enabled for each of our server-host accounts. We have also whitelisted the IP's for linprog.cs.fsu.edu, allowing ssh connections to the server after first connecting to linprog. Fail2ban has also been added to server to prevent brute for key attacks.
 
+Demo of Admin Panel & Database Interaction
+<br>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=OUvoSXsZm_M
+" target="_blank"><img src="http://img.youtube.com/vi/OUvoSXsZm_M/0.jpg" 
+alt="demo video: flask app database management" width="360" height="180" border="10" /></a>
+
 ## Project Milestones
 |Milestone|Description|
 |---|---|

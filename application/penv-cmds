@@ -1,0 +1,6 @@
+cd ~/project
+python3 -m venv myprojectenv
+source myprojectenv/bin/activate
+pip install wheel
+pip install gunicorn flask
+cp server.py ~/project/server.py
